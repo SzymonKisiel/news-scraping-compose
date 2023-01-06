@@ -1,0 +1,460 @@
+{
+	"info": {
+		"_postman_id": "efb67fab-897e-440c-b112-a5c439326cec",
+		"name": "news-scraping Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21159397"
+	},
+	"item": [
+		{
+			"name": "command-handler",
+			"item": [
+				{
+					"name": "test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/command-handler",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"command-handler"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crawl",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"websites\": [\r\n        \"fakt\",\r\n        \"onet\",\r\n        \"radiozet\",\r\n        \"rmf24\",\r\n        \"tvn24\"\r\n    ],\r\n    \"crawls_amount\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5001/api/command-handler/crawl",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"command-handler",
+								"crawl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-delay",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"websites\": [\r\n        \"fakt\",\r\n        \"onet\",\r\n        \"radiozet\",\r\n        \"rmf24\",\r\n        \"tvn24\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5001/api/command-handler/get-delay",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"command-handler",
+								"get-delay"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-scraping-start",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"websites\": [\r\n        \"fakt\",\r\n        \"onet\",\r\n        \"radiozet\",\r\n        \"rmf24\",\r\n        \"tvn24\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5001/api/command-handler/get-scraping-start",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"command-handler",
+								"get-scraping-start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-websites",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/command-handler/get-websites",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"command-handler",
+								"get-websites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "set-delay",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"websites\": [\r\n        \"rmf24\",\r\n        \"onet\"\r\n    ],\r\n    \"delay\": \"210\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5001/api/command-handler/set-delay",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"command-handler",
+								"set-delay"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "set-scraping-start",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"websites\": [\r\n        \"fakt\",\r\n        \"onet\",\r\n        \"radiozet\",\r\n        \"rmf24\",\r\n        \"tvn24\"\r\n    ],\r\n    \"date\": \"2023-01-06T03:33:33+0100\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5001/api/command-handler/set-scraping-start",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"command-handler",
+								"set-scraping-start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-sentiments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"search_term\": \"Putin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5001/api/command-handler/update-sentiment",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"command-handler",
+								"update-sentiment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client_name\": \"Client1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5001/api/command-handler/add-client",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"command-handler",
+								"add-client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-word-to-client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client_name\": \"Client1\",\r\n    \"search_term\": \"Putin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5001/api/command-handler/add-search-term",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"command-handler",
+								"add-search-term"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-sentiments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/command-handler/get-all-sentiments?term=Putin",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"command-handler",
+								"get-all-sentiments"
+							],
+							"query": [
+								{
+									"key": "term",
+									"value": "Putin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-sentiments Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/command-handler/get-all-sentiments?term_id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"command-handler",
+								"get-all-sentiments"
+							],
+							"query": [
+								{
+									"key": "term_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-search-terms",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/command-handler/get-all-search-terms?client_name=Client1",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"command-handler",
+								"get-all-search-terms"
+							],
+							"query": [
+								{
+									"key": "client_name",
+									"value": "Client1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-search-terms Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/command-handler/get-all-search-terms?client_id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"command-handler",
+								"get-all-search-terms"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/command-handler/get-all-clients",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"command-handler",
+								"get-all-clients"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "scraper",
+			"item": [
+				{
+					"name": "test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5002/api/scraper/",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"api",
+								"scraper",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sentiment-analyser",
+			"item": [
+				{
+					"name": "test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5003/api/sentiment-analyser/",
+							"host": [
+								"localhost"
+							],
+							"port": "5003",
+							"path": [
+								"api",
+								"sentiment-analyser",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
