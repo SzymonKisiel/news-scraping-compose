@@ -1,8 +1,8 @@
 version: '3.8'
 services:
   command-handler:
-#    image: network-test-client
-    build: ./command-handler
+    image: skisiel/news-scraping_command-handler:0.1
+    # build: ./command-handler
     ports:
       - "5001:5001"
     networks:
@@ -13,8 +13,8 @@ services:
 #      - SCRAPER_API='http:'
 #      - APP_PORT=5001
   scraper:
-#    image: network-test-server
-    build: ./scraper
+    image: skisiel/news-scraping_scraper:0.1
+    # build: ./scraper
     ports:
       - "5002:5002"
     networks:
@@ -22,7 +22,8 @@ services:
     volumes:
       - ./data:/application/data
   sentiment-analyser:
-    build: ./sentiment-analyser
+    image: skisiel/news-scraping_sentiment-analyser:0.1
+    # build: ./sentiment-analyser
     ports:
       - "5003:5003"
     networks:
@@ -40,12 +41,12 @@ services:
       MYSQL_ROOT_PASSWORD: p@ssw0rd1
     networks:
       - scraper-network
-  ui:
-    build: ./frontend
-    ports:
-      - "8080:80"
-    networks:
-      - scraper-network
+  # ui:
+  #   build: ./frontend
+  #   ports:
+  #     - "8080:80"
+  #   networks:
+  #     - scraper-network
 networks:
   scraper-network:
     name: custom_network

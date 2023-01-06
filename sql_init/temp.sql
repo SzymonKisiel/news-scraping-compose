@@ -1,8 +1,0 @@
--- CREATE TABLE news_scraping_db.clients (
--- 	id INT auto_increment NOT NULL,
--- 	name varchar(100) NOT NULL,
--- 	CONSTRAINT clients_PK PRIMARY KEY (id)
--- )
--- ENGINE=InnoDB
--- DEFAULT CHARSET=utf8mb4
--- COLLATE=utf8mb4_0900_ai_ci;
