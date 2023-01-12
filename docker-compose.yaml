@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   command-handler:
-    image: skisiel/news-scraping_command-handler:0.1
+    image: skisiel/news-scraping_command-handler:0.2
     # build: ./command-handler
     ports:
       - "5001:5001"
@@ -9,11 +9,9 @@ services:
       - scraper-network
     env_file:
       - command-handler/.env.prod
-#    environment:
-#      - SCRAPER_API='http:'
-#      - APP_PORT=5001
+
   scraper:
-    image: skisiel/news-scraping_scraper:0.1
+    image: skisiel/news-scraping_scraper:0.2
     # build: ./scraper
     ports:
       - "5002:5002"
@@ -21,13 +19,23 @@ services:
       - scraper-network
     volumes:
       - ./data:/application/data
+
   sentiment-analyser:
-    image: skisiel/news-scraping_sentiment-analyser:0.1
+    image: skisiel/news-scraping_sentiment-analyser:0.2
     # build: ./sentiment-analyser
     ports:
       - "5003:5003"
     networks:
       - scraper-network
+
+  sentiment-analyser-worker:
+    image: skisiel/news-scraping_sentiment-analyser:0.2
+    # build: ./sentiment-analyser
+    entrypoint: celery
+    command: -A celery_app worker --loglevel=info --pool=solo
+    networks:
+      - scraper-network
+      
   scraper_db:
     image: mysql:8.0.31-debian
     restart: always
@@ -41,16 +49,30 @@ services:
       MYSQL_ROOT_PASSWORD: p@ssw0rd1
     networks:
       - scraper-network
-  # ui:
-  #   build: ./frontend
-  #   ports:
-  #     - "8080:80"
-  #   networks:
-  #     - scraper-network
+
+  ui:
+    image: skisiel/news-scraping_ui:0.2
+    # build: ./frontend
+    ports:
+      - "8080:80"
+    networks:
+      - scraper-network
+
+  redis:
+    image: redis:7.0.7
+    hostname: redis
+    networks:
+      - scraper-network
+
+  rabbitmq:
+    image: rabbitmq:3.11.6
+    hostname: rabbitmq
+    networks:
+      - scraper-network
+
 networks:
   scraper-network:
     name: custom_network
 volumes:
-  # scraper_config:
   mysql:
   mysql_config:
